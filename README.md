@@ -2,7 +2,9 @@
 
 CodeType é uma aplicação web moderna construída com Next.js, TypeScript e Tailwind CSS. Este projeto possui uma configuração robusta de desenvolvimento com Jest para testes e uma base de código limpa e de fácil manutenção.
 
-🌐 **Acesse o jogo aqui:** [CodeType Online](https://code-type-henna.vercel.app/)
+<a href="https://code-type-henna.vercel.app/" target="_blank" rel="noopener noreferrer">
+   <img src="https://img.shields.io/badge/Jogar%20Agora-Online-blue?style=for-the-badge" alt="Jogar CodeType">
+</a>
 
 ## 🎯 Sobre o Jogo
 
