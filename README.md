@@ -14,7 +14,7 @@ CodeType é uma aplicação web moderna construída com Next.js, TypeScript e Ta
 ![Tela do Jogo](https://i.imgur.com/Iyzr53x.png)
 *Área de digitação e jogo*
 
-![Tela de Resultado](https://i.imgur.com/IS0MH7e.png)
+![Tela de Resultado](https://imgur.com/a/IS0MH7e)
 *Tela de resultados e estatísticas*
 
 </div>
