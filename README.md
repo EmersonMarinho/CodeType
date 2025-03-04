@@ -2,23 +2,6 @@
 
 CodeType é uma aplicação web moderna construída com Next.js, TypeScript e Tailwind CSS. Este projeto possui uma configuração robusta de desenvolvimento com Jest para testes e uma base de código limpa e de fácil manutenção.
 
-## 📸 Screenshots
-
-<div align="center">
-
-### 🎮 Telas da Aplicação
-
-![Tela Inicial](https://i.imgur.com/5C92c1s.png)
-*Tela inicial da aplicação*
-
-![Tela do Jogo](https://i.imgur.com/Iyzr53x.png)
-*Área de digitação e jogo*
-
-![Tela de Resultado](https://imgur.com/a/IS0MH7e)
-*Tela de resultados e estatísticas*
-
-</div>
-
 ## 🎯 Sobre o Jogo
 
 O CodeType é um jogo de digitação focado em melhorar suas habilidades de digitação de código. Ele oferece:
