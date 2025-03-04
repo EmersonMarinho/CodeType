@@ -1,128 +1,167 @@
-# CodeType
-
-CodeType é uma aplicação web moderna construída com Next.js, TypeScript e Tailwind CSS. Este projeto possui uma configuração robusta de desenvolvimento com Jest para testes e uma base de código limpa e de fácil manutenção.
-
-## 📸 Screenshots
+# CodeType 🎯
 
 <div align="center">
 
-### 🎮 Telas da Aplicação
+[![Deploy with Vercel](https://img.shields.io/badge/Deploy%20with-Vercel-black?style=for-the-badge&logo=vercel)](https://code-type-henna.vercel.app/)
+[![GitHub license](https://img.shields.io/github/license/EmersonMarinho/CodeType?style=for-the-badge)](https://github.com/EmersonMarinho/CodeType/blob/main/LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)](https://jestjs.io/)
 
-![Tela Inicial](/public/telaInicial.png)
-*Tela inicial da aplicação*
+<br />
 
-![Tela do Jogo](/public/jogo.png)
-*Área de digitação e jogo*
+<h3>🚀 Aprimore suas habilidades de digitação de código</h3>
 
-![Tela de Resultado](/public/Result.png)
-*Tela de resultados e estatísticas*
+[Jogar Agora](https://code-type-henna.vercel.app/) • [Reportar Bug](https://github.com/EmersonMarinho/CodeType/issues) • [Solicitar Funcionalidade](https://github.com/EmersonMarinho/CodeType/issues)
 
 </div>
 
-<a href="https://code-type-henna.vercel.app/" target="_blank" rel="noopener noreferrer">
-   <img src="https://img.shields.io/badge/Jogar%20Agora-Online-blue?style=for-the-badge" alt="Jogar CodeType">
-</a>
+<br />
 
-## 🎯 Sobre o Jogo
+## ✨ Sobre o Projeto
 
-O CodeType é um jogo de digitação focado em melhorar suas habilidades de digitação de código. Ele oferece:
+CodeType é uma aplicação web moderna focada em ajudar desenvolvedores a melhorarem sua velocidade e precisão na digitação de código. Com uma interface elegante e feedback em tempo real, o CodeType oferece uma experiência única de aprendizado.
 
-- ⌨️ Prática de digitação com trechos reais de código
-- 📊 Estatísticas detalhadas de desempenho
-- 🎯 Medição de precisão e velocidade
-- 🌈 Interface moderna e intuitiva
-- 📱 Experiência responsiva em qualquer dispositivo
+<div align="center">
 
-## 🚀 Funcionalidades
+### 📸 Screenshots
 
-- ⚡ **Next.js 14** com App Router
-- 🎯 **TypeScript** para segurança de tipos
-- 🎨 **Tailwind CSS** para estilização
-- ✅ **Jest** e **React Testing Library** para testes
-- 📱 **Design Responsivo**
-- 🔍 **ESLint** para análise de código
-- 🎭 **HeroIcons** para ícones bonitos
+<img src="/public/telaInicial.png" alt="Tela Inicial" width="100%" style="border-radius: 10px; margin: 10px 0;" />
 
-## 📦 Pré-requisitos
+<table>
+  <tr>
+    <td width="50%">
+      <img src="/public/jogo.png" alt="Área de Digitação" width="100%" style="border-radius: 10px;" />
+      <p align="center"><em>Área de digitação e jogo</em></p>
+    </td>
+    <td width="50%">
+      <img src="/public/Result.png" alt="Resultados" width="100%" style="border-radius: 10px;" />
+      <p align="center"><em>Tela de resultados e estatísticas</em></p>
+    </td>
+  </tr>
+</table>
 
-Antes de começar, certifique-se de ter instalado:
-- Node.js (v18 ou superior)
-- npm (v8 ou superior)
+</div>
 
-## 🛠️ Instalação
+## 🎯 Principais Funcionalidades
 
-1. Clone o repositório:
+<table>
+  <tr>
+    <td>
+      <h3>⌨️ Prática Focada</h3>
+      <p>Treine com trechos reais de código e melhore sua velocidade de digitação em contextos de programação.</p>
+    </td>
+    <td>
+      <h3>📊 Estatísticas Detalhadas</h3>
+      <p>Acompanhe seu progresso com métricas precisas de velocidade, precisão e consistência.</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>🎨 Design Moderno</h3>
+      <p>Interface limpa e intuitiva, desenvolvida com Tailwind CSS para uma experiência visual agradável.</p>
+    </td>
+    <td>
+      <h3>📱 Responsivo</h3>
+      <p>Pratique em qualquer dispositivo com uma interface totalmente adaptável.</p>
+    </td>
+  </tr>
+</table>
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Frontend:**
+  - ⚡ Next.js 14 com App Router
+  - 🔷 TypeScript
+  - 🎨 Tailwind CSS
+  - 🎭 HeroIcons
+
+- **Testes:**
+  - ✅ Jest
+  - 🧪 React Testing Library
+  - 📊 Cobertura de Testes
+
+- **Qualidade de Código:**
+  - 🔍 ESLint
+  - 📝 Prettier
+  - 🔒 TypeScript strict mode
+
+## 🚀 Começando
+
+### Pré-requisitos
+
+- Node.js (v18+)
+- npm (v8+)
+
+### Instalação
+
+1. Clone o repositório
 ```bash
 git clone git@github.com:EmersonMarinho/CodeType.git
 cd codetype
 ```
 
-2. Instale as dependências:
+2. Instale as dependências
 ```bash
 npm install
 ```
 
-## 🚀 Começando
-
-Para executar o servidor de desenvolvimento:
-
+3. Inicie o servidor de desenvolvimento
 ```bash
 npm run dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
+## 📖 Scripts Disponíveis
 
-## 🧪 Testes
+\`\`\`bash
+# Desenvolvimento
+npm run dev      # Inicia o servidor de desenvolvimento
+npm run build    # Compila o projeto para produção
+npm start        # Inicia o servidor de produção
 
-Este projeto utiliza Jest e React Testing Library para testes. Para executar os testes:
+# Testes
+npm test         # Executa os testes
+npm run test:watch    # Executa os testes em modo watch
+npm run test:coverage # Gera relatório de cobertura
 
-```bash
-# Executar testes
-npm test
+# Qualidade de código
+npm run lint     # Executa o ESLint
+\`\`\`
 
-# Executar testes em modo de observação
-npm run test:watch
+## 📁 Estrutura do Projeto
 
-# Executar testes com relatório de cobertura
-npm run test:coverage
-```
-
-## 📝 Scripts Disponíveis
-
-- `npm run dev` - Inicia o servidor de desenvolvimento
-- `npm run build` - Compila a aplicação para produção
-- `npm start` - Executa o servidor de produção
-- `npm run lint` - Executa o ESLint para análise de código
-- `npm test` - Executa a suíte de testes
-- `npm run test:watch` - Executa os testes em modo de observação
-- `npm run test:coverage` - Gera relatório de cobertura de testes
-
-## 🏗️ Estrutura do Projeto
-
-```
+\`\`\`
 codetype/
-├── app/                # Diretório do Next.js
-├── components/         # Componentes React
-├── public/            # Arquivos estáticos
-├── types/             # Definições de tipos TypeScript
-├── __tests__/         # Arquivos de teste
-├── .next/             # Saída de compilação do Next.js
-└── ...arquivos de configuração
-```
-
-## 🚀 Implantação
-
-A maneira mais fácil de fazer o deploy desta aplicação é através da [Plataforma Vercel](https://vercel.com/new).
-
-1. Envie seu código para um repositório Git
-2. Importe seu projeto para a Vercel
-3. A Vercel detectará o Next.js e configurará as definições de build automaticamente
-4. Sua aplicação será implantada e estará disponível globalmente
+├── 📱 app/            # Componentes e páginas Next.js
+├── 🧩 components/     # Componentes React reutilizáveis
+├── 🎨 public/         # Arquivos estáticos
+├── 📝 types/         # Definições de tipos TypeScript
+├── 🧪 __tests__/     # Testes
+└── 📦 .next/         # Build do Next.js
+\`\`\`
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
+Contribuições são sempre bem-vindas! Siga estes passos:
+
+1. Fork o projeto
+2. Crie sua Feature Branch (\`git checkout -b feature/AmazingFeature\`)
+3. Commit suas mudanças (\`git commit -m 'Add: nova funcionalidade'\`)
+4. Push para a Branch (\`git push origin feature/AmazingFeature\`)
+5. Abra um Pull Request
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+---
+
+<div align="center">
+
+Desenvolvido com ❤️ por [Emerson Marinho](https://github.com/EmersonMarinho)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emerson-marinho-35b6971b6/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=About.me&logoColor=white)](https://portfolio-emersonmarinho.vercel.app/)
+
+</div>
