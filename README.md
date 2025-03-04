@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CodeType
 
-## Getting Started
+CodeType é uma aplicação web moderna construída com Next.js, TypeScript e Tailwind CSS. Este projeto possui uma configuração robusta de desenvolvimento com Jest para testes e uma base de código limpa e de fácil manutenção.
 
-First, run the development server:
+## 📸 Screenshots
+
+<div align="center">
+
+### 🎮 Telas da Aplicação
+
+![Tela Inicial](https://i.imgur.com/5C92c1s.png)
+*Tela inicial da aplicação*
+
+![Tela do Jogo](https://i.imgur.com/Iyzr53x.png)
+*Área de digitação e jogo*
+
+![Tela de Resultado](https://i.imgur.com/IS0MH7e.png)
+*Tela de resultados e estatísticas*
+
+</div>
+
+## 🎯 Sobre o Jogo
+
+O CodeType é um jogo de digitação focado em melhorar suas habilidades de digitação de código. Ele oferece:
+
+- ⌨️ Prática de digitação com trechos reais de código
+- 📊 Estatísticas detalhadas de desempenho
+- 🎯 Medição de precisão e velocidade
+- 🌈 Interface moderna e intuitiva
+- 📱 Experiência responsiva em qualquer dispositivo
+
+## 🚀 Funcionalidades
+
+- ⚡ **Next.js 14** com App Router
+- 🎯 **TypeScript** para segurança de tipos
+- 🎨 **Tailwind CSS** para estilização
+- ✅ **Jest** e **React Testing Library** para testes
+- 📱 **Design Responsivo**
+- 🔍 **ESLint** para análise de código
+- 🎭 **HeroIcons** para ícones bonitos
+
+## 📦 Pré-requisitos
+
+Antes de começar, certifique-se de ter instalado:
+- Node.js (v18 ou superior)
+- npm (v8 ou superior)
+
+## 🛠️ Instalação
+
+1. Clone o repositório:
+```bash
+git clone [url-do-seu-repositorio]
+cd codetype
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+## 🚀 Começando
+
+Para executar o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧪 Testes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Este projeto utiliza Jest e React Testing Library para testes. Para executar os testes:
 
-## Learn More
+```bash
+# Executar testes
+npm test
 
-To learn more about Next.js, take a look at the following resources:
+# Executar testes em modo de observação
+npm run test:watch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Executar testes com relatório de cobertura
+npm run test:coverage
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 Scripts Disponíveis
 
-## Deploy on Vercel
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Compila a aplicação para produção
+- `npm start` - Executa o servidor de produção
+- `npm run lint` - Executa o ESLint para análise de código
+- `npm test` - Executa a suíte de testes
+- `npm run test:watch` - Executa os testes em modo de observação
+- `npm run test:coverage` - Gera relatório de cobertura de testes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏗️ Estrutura do Projeto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+codetype/
+├── app/                # Diretório do Next.js
+├── components/         # Componentes React
+├── public/            # Arquivos estáticos
+├── types/             # Definições de tipos TypeScript
+├── __tests__/         # Arquivos de teste
+├── .next/             # Saída de compilação do Next.js
+└── ...arquivos de configuração
+```
+
+## 🚀 Implantação
+
+A maneira mais fácil de fazer o deploy desta aplicação é através da [Plataforma Vercel](https://vercel.com/new).
+
+1. Envie seu código para um repositório Git
+2. Importe seu projeto para a Vercel
+3. A Vercel detectará o Next.js e configurará as definições de build automaticamente
+4. Sua aplicação será implantada e estará disponível globalmente
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
