@@ -49,7 +49,7 @@ Antes de começar, certifique-se de ter instalado:
 
 1. Clone o repositório:
 ```bash
-git clone [url-do-seu-repositorio]
+git clone git@github.com:EmersonMarinho/CodeType.git
 cd codetype
 ```
 
