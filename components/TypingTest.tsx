@@ -470,11 +470,14 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
   const [currentText, setCurrentText] = useState('')
   const [inputValue, setInputValue] = useState('')
   const [startTime, setStartTime] = useState<number | null>(null)
+  const [totalTimeElapsed, setTotalTimeElapsed] = useState(0)
   const [stats, setStats] = useState({  
     wpm: 0,
     cpm: 0,
     accuracy: 100
   })
+  const [currentTestNumber, setCurrentTestNumber] = useState(1)
+  const totalTests = categorizedTexts[settings.programmingLanguage][settings.difficulty].length
   const [isComplete, setIsComplete] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const [detailedStats, setDetailedStats] = useState<DetailedStats & { maxCombo: number; currentCombo: number }>({
@@ -501,6 +504,9 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
   const correctSound = useRef<HTMLAudioElement | null>(null)
   const wrongSound = useRef<HTMLAudioElement | null>(null)
   const comboSound = useRef<HTMLAudioElement | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [totalCharsTyped, setTotalCharsTyped] = useState(0)
+  const [totalWordsTyped, setTotalWordsTyped] = useState(0)
 
   // Load saved stats on mount
   useEffect(() => {
@@ -582,7 +588,7 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
     const availableTexts = categorizedTexts[settings.programmingLanguage][settings.difficulty]
       .filter(text => !completedTexts.includes(text))
     
-    if (availableTexts.length === 0) {
+    if (availableTexts.length === 0 || currentTestNumber > totalTests) {
       setIsComplete(true)
       setShowAnalysis(true)
       return
@@ -591,7 +597,6 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
     const newText = availableTexts[Math.floor(Math.random() * availableTexts.length)]
     setCurrentText(newText)
     setInputValue('')
-    setStartTime(null)
     setIsComplete(false)
   }
 
@@ -616,8 +621,8 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
     const prevValue = inputValue
     setInputValue(value)
 
-    // Initialize start time if not set
-    if (!startTime) {
+    // Initialize start time only on first test if not set
+    if (!startTime && currentTestNumber === 1) {
       setStartTime(Date.now())
       setIsActive(true)
     }
@@ -656,16 +661,24 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
     const incorrectKeystrokes = detailedStats.incorrectKeystrokes + newIncorrectKeystrokes
     const accuracy = totalKeystrokes > 0 ? Math.round((correctKeystrokes / totalKeystrokes) * 100) : 100
 
-    // Calculate stats
+    // Calculate time elapsed since the start of the first test
     const timeElapsed = startTime ? (Date.now() - startTime) / 1000 : 0
-    const rawWpm = Math.round((value.length / 5) / (timeElapsed / 60))
-    const netWpm = Math.round(rawWpm * (accuracy / 100))
+    
+    // Calculate WPM based on total words typed correctly
+    const wordsPerChar = 1 / 5 // Standard: 5 characters = 1 word
+    const totalCorrectChars = correctKeystrokes
+    const effectiveWords = totalCorrectChars * wordsPerChar
+    
+    // Calculate WPM: (total words / minutes elapsed)
+    const minutes = timeElapsed / 60
+    const wpm = minutes > 0 ? Math.round(effectiveWords / minutes) : 0
+    const cpm = minutes > 0 ? Math.round(correctKeystrokes / minutes) : 0
 
-    // Update stats state
+    // Update stats state with new calculations
     setStats({
-      wpm: netWpm,
+      wpm,
       accuracy,
-      cpm: Math.round(value.length / (timeElapsed / 60))
+      cpm
     })
 
     // Update detailed stats
@@ -676,8 +689,8 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
       incorrectKeystrokes,
       mistakesByCharacter: newMistakesByCharacter,
       timeElapsed,
-      rawWpm,
-      netWpm,
+      rawWpm: wpm,
+      netWpm: Math.round(wpm * (accuracy / 100)),
       accuracy
     }))
 
@@ -702,40 +715,48 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
     }
 
     // Check if text is complete and correct
-    if (value === currentText) {
+    if (value === currentText && !isLoading) {
+      setIsLoading(true)
       setIsComplete(true)
       const timeBonus = 15
       setTimeLeft(prev => prev + timeBonus)
+      
+      // Calculate and accumulate time for this test
+      if (startTime) {
+        const testTime = (Date.now() - startTime) / 1000
+        setTotalTimeElapsed(prev => prev + testTime)
+      }
+      
+      // Increment current test number
+      setCurrentTestNumber(prev => prev + 1)
       
       // Add current text to completed texts
       setCompletedTexts(prev => {
         const newCompleted = [...prev, currentText]
         
-        // Get total number of texts for this difficulty
-        const totalTexts = categorizedTexts[settings.programmingLanguage][settings.difficulty].length
-        
-        // If we completed all texts
-        if (newCompleted.length >= totalTexts) {
-          // Use setTimeout to ensure state updates are processed
+        // If we completed all tests
+        if (currentTestNumber >= totalTests) {
           setTimeout(() => {
             setShowAnalysis(true)
+            setIsLoading(false)
           }, 100)
         } else {
-          // Load new text after a short delay
+          // Load new text after a shorter delay
           setTimeout(() => {
             loadNewText()
-          }, 1000)
+            setIsLoading(false)
+          }, 300)
         }
         
         return newCompleted
       })
 
       // Add to rankings if good enough
-      if (netWpm > 0) {
+      if (wpm > 0) {
         const newRanking: RankingType = {
           id: Date.now().toString(),
           username: 'Anonymous',
-          wpm: netWpm,
+          wpm,
           accuracy,
           timestamp: new Date()
         }
@@ -751,6 +772,9 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
     setShowAnalysis(false)
     setInputValue('')
     setStartTime(null)
+    setTotalTimeElapsed(0)
+    setTotalCharsTyped(0)
+    setTotalWordsTyped(0)
     setStats({
       wpm: 0,
       cpm: 0,
@@ -774,6 +798,7 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
     setCompletedTexts([])
     setTimeLeft(60)
     setIsActive(false)
+    setCurrentTestNumber(1) // Reset test counter
     
     setTimeout(() => {
       loadNewText()
@@ -785,7 +810,14 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
     return (
       <div className="min-h-screen flex items-center bg-[#121316]">
         <div className="max-w-3xl mx-auto w-full py-8 px-4">
-          <Analysis stats={detailedStats} onRestart={handleRestart} language={settings.language} />
+          <Analysis 
+            stats={{
+              ...detailedStats,
+              timeElapsed: totalTimeElapsed // Use accumulated total time
+            }} 
+            onRestart={handleRestart} 
+            language={settings.language} 
+          />
           <div className="mt-8">
             <Achievements 
               stats={{
@@ -837,6 +869,10 @@ export default function TypingTest({ settings, onBack }: TypingTestProps) {
             <div>
               <span className="text-[#d1d0c5] mr-1">{timeLeft}</span>
               sec
+            </div>
+            <div>
+              <span className="text-[#d1d0c5] mr-1">{currentTestNumber}/{totalTests}</span>
+              test
             </div>
           </div>
         </div>
