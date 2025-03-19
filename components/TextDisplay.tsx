@@ -7,7 +7,7 @@ interface TextDisplayProps {
 
 export default function TextDisplay({ text, inputValue }: TextDisplayProps) {
   return (
-    <div className="font-mono text-lg leading-relaxed whitespace-pre-wrap">
+    <div className="font-mono text-lg leading-relaxed whitespace-pre-wrap select-none">
       {text.split('').map((char, i) => {
         const isTyped = i < inputValue.length
         const isCorrect = isTyped && char === inputValue[i]

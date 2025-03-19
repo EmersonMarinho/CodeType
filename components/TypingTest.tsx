@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, use } from 'react'
 import Stats from './Stats'
 import Analysis from './Analysis'
 import Ranking from './Ranking'
@@ -429,9 +429,22 @@ const MistakeHeatMap = ({ mistakes }: { mistakes: HeatMapData[] }) => {
 }
 
 const TextDisplay = ({ text, inputValue, combo }: TextDisplayProps) => {
+  useEffect(() => {
+    const handleCopyPaste = (e: ClipboardEvent) => {
+      e.preventDefault()
+    }
+    document.addEventListener('copy', handleCopyPaste)
+    document.addEventListener('paste', handleCopyPaste)
+
+    return () => {
+      document.removeEventListener('copy', handleCopyPaste)
+      document.removeEventListener('paste', handleCopyPaste)
+    }
+  }, [])
+  
   return (
     <div className="font-mono text-lg">
-      <div className="bg-[#1f2023] rounded p-6">
+      <div className="bg-[#1f2023] rounded p-6 select-none">
         {text.split('').map((char, i) => {
           const inputChar = inputValue[i]
           let className = 'text-[#646669]' // Default color
